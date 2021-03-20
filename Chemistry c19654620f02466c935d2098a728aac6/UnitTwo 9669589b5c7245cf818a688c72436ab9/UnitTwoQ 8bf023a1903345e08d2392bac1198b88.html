@@ -1,0 +1,834 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>UnitTwoQ</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8bf023a1-9033-45e0-8d23-92bac1198b88" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">2️⃣</span></div><h1 class="page-title">UnitTwoQ</h1></header><div class="page-body"><p id="babbda27-d157-478d-80a6-cb7797debe25" class=""> <strong>مجموع الاسئلة </strong>⬅️ <strong>١٧١- سؤال</strong></p><p id="c65026d9-d9e5-40b3-8bb1-a10145d216e2" class="">
+</p><p id="19d47a73-4ae2-4ac3-9297-99d26a47c669" class="">
+</p><p id="353b5721-d550-493f-b7a4-5a73a59b98be" class=""><strong>⬇️اضغط علي اللينك لاظهار كتاب المدرسه الباب الثاني</strong></p><figure id="a5352d99-5e31-40ea-9771-42369bfa0b1b"><div class="source"><a href="https://d3sk34bfh9epsl.cloudfront.net/chemistry/g12/a_c2_chemistry_3sec.pdf">https://d3sk34bfh9epsl.cloudfront.net/chemistry/g12/a_c2_chemistry_3sec.pdf</a></div></figure><p id="3c858a05-ff06-487e-b7d9-e8ec49a4ed23" class=""><code><strong>كتاب المدرسه الباب الثاني </strong></code></p><p id="4d33b333-dbb6-4f9c-a25d-4746d5f09b85" class="">
+</p><p id="7b38ec03-31ee-43e3-881b-524c2c78672e" class="">
+</p><figure id="aa44c074-4749-41ea-b44b-dbd4f51c51b1" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.48.39_PM.png"><img style="width:1176px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.48.39_PM.png"/></a></figure><figure id="6fd7b637-8401-4596-b846-a7465a6f7659" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%206fd7b63784014596b846a7465a6f7659.html">الاجابه</a></figure><p id="4187cc13-484d-4aef-b13f-c6bb907a30e1" class="">
+</p><p id="08b4b4be-184f-416b-b7b8-024e8c9f8b27" class="">
+</p><figure id="df68ce83-dd36-421e-b656-7f16c364b1ad" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.49.06_PM.png"><img style="width:1212px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.49.06_PM.png"/></a></figure><figure id="b04bfab3-afc7-4558-8619-a986d9a0de5f" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20b04bfab3afc745588619a986d9a0de5f.html">الاجابه</a></figure><p id="26563d5a-74a2-4c4a-8415-8eac181f04e2" class="">
+</p><p id="d526aefc-82f2-4789-934c-be412c6097dd" class="">
+</p><figure id="b9679755-7e89-46d4-b684-58e6e9f34314" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.49.25_PM.png"><img style="width:1020px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.49.25_PM.png"/></a></figure><figure id="3fc41b0e-eb63-4b3d-853b-71c097bb8386" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%203fc41b0eeb634b3d853b71c097bb8386.html">الاجابه</a></figure><p id="9dca3446-6393-422d-bee6-6bc7199b25cc" class="">
+</p><p id="3b94ec12-498d-4a8a-8b9e-67ccd69bbd2e" class="">
+</p><figure id="bafda0d7-c211-4281-b733-fb62dbc0620b" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.49.42_PM.png"><img style="width:1228px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.49.42_PM.png"/></a></figure><figure id="75e34643-5349-419d-9edd-fafefbc64954" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2075e346435349419d9eddfafefbc64954.html">الاجابه</a></figure><p id="4d8739e5-bc2b-405c-a411-76fd03fee339" class="">
+</p><p id="546a8b72-2bf2-4f9a-8a1f-20378424020f" class="">
+</p><figure id="f67e7a32-2c15-426a-bb20-7d4582cbc61e" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.49.58_PM.png"><img style="width:1220px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.49.58_PM.png"/></a></figure><figure id="d1968616-8681-4d7a-8a2c-40056789b6b0" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20d196861686814d7a8a2c40056789b6b0.html">الاجابه</a></figure><p id="9c75e625-078b-43f3-a1c5-03a4700a1c1c" class="">
+</p><p id="f910c235-afd8-4bc0-bd93-ed718f5d7e99" class="">
+</p><figure id="32769548-9531-4740-8aaa-f19edb53773f" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.50.21_PM.png"><img style="width:1220px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.50.21_PM.png"/></a></figure><figure id="848bf714-3098-4862-b800-a7a7262d0ee1" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20848bf71430984862b800a7a7262d0ee1.html">الاجابه</a></figure><p id="19441983-5860-4550-908d-564d8f4c9d9c" class="">
+</p><p id="e8ec9866-b49c-46d4-ab14-ef61a6b44582" class="">
+</p><figure id="a83faa9b-80c6-4135-8095-208bca0b5d62" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.50.33_PM.png"><img style="width:1162px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.50.33_PM.png"/></a></figure><figure id="410407d7-abaa-4bff-8c60-0c1e9dedff27" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20410407d7abaa4bff8c600c1e9dedff27.html">الاجابه</a></figure><p id="02ba02e9-85a6-491b-a569-55f473501ecf" class="">
+</p><p id="3c875e07-f65f-4112-830d-d14900d4884a" class="">
+</p><figure id="dcaff8cf-4354-495e-b303-5cad60238ac0" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.50.47_PM.png"><img style="width:720px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.50.47_PM.png"/></a></figure><figure id="b8f26767-7a77-40d6-bff3-f5b0d81f76de" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20b8f267677a7740d6bff3f5b0d81f76de.html">الاجابه</a></figure><p id="534c7e9f-44c2-47db-8ff2-57ef6233919e" class="">
+</p><p id="daba37e8-f9c1-42b1-95ea-4ed433ca82e1" class="">
+</p><figure id="35be3e4e-deaf-457b-bb80-81a76328d773" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.51.01_PM.png"><img style="width:1224px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.51.01_PM.png"/></a></figure><figure id="6346860b-f00c-4e16-ad19-47f4e135dc29" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%206346860bf00c4e16ad1947f4e135dc29.html">الاجابه</a></figure><p id="163c2318-7c6c-4600-b64e-2cefe2ff6c99" class="">
+</p><p id="6c09e239-b695-4030-a731-5ac4f72efc2d" class="">
+</p><figure id="f3e46f2a-a4d7-44d7-9518-d341182ba408" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.51.16_PM.png"><img style="width:1106px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.51.16_PM.png"/></a></figure><figure id="ac9e3893-b18c-4839-ac22-dc9f54c1b1f6" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20ac9e3893b18c4839ac22dc9f54c1b1f6.html">الاجابه</a></figure><p id="0afeea19-7399-400f-b80d-29a786f349f0" class="">
+</p><p id="8c61d4d0-1c90-4005-84b3-5f2f8a080bb0" class="">
+</p><figure id="69b14d4b-d0cf-4a14-9b1e-ba022eea6046" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.51.30_PM.png"><img style="width:1204px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.51.30_PM.png"/></a></figure><figure id="c23f8408-edfd-4574-9d31-c6381ee5b717" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20c23f8408edfd45749d31c6381ee5b717.html">الاجابه</a></figure><p id="8643de4b-d91a-451d-b0f1-2ea9582bdff8" class="">
+</p><p id="8e009f88-dd61-4987-8500-9062275d6749" class="">
+</p><figure id="30c0e0f3-7bfb-4234-9427-9de2e5490d28" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.51.41_PM.png"><img style="width:920px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.51.41_PM.png"/></a></figure><figure id="efb47197-28a8-4adb-8a4b-d44c278f6e41" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20efb4719728a84adb8a4bd44c278f6e41.html">الاجابه</a></figure><p id="40ecae00-395a-4338-9400-609fa9f17f1a" class="">
+</p><p id="4ddb74ca-0b79-4f53-9a16-9c1a39a0a94f" class="">
+</p><figure id="2b3a65ae-2ba1-479f-b717-c42f8abee690" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.51.57_PM.png"><img style="width:1198px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.51.57_PM.png"/></a></figure><figure id="dac68e14-d73e-447a-8dec-c7a9755cc01b" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20dac68e14d73e447a8decc7a9755cc01b.html">الاجابه</a></figure><p id="bfc85b34-1fd2-41b7-9aad-c0ac93c09480" class="">
+</p><p id="0ab6d55b-e359-4f67-bce7-57f120c2204a" class="">
+</p><figure id="8bbced43-2a30-445b-a0d9-00da9810ed1f" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.52.12_PM.png"><img style="width:1230px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.52.12_PM.png"/></a></figure><figure id="7926e1f1-eeea-4cdc-be0b-57e9f3985633" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%207926e1f1eeea4cdcbe0b57e9f3985633.html">الاجابه</a></figure><p id="2ed195ed-7d0a-4b2c-88f5-94708c4f7a71" class="">
+</p><p id="368d4d30-6a7f-47c5-8731-cca49ca963ff" class="">
+</p><figure id="0be0827c-26bf-48e4-8958-40ffb76e724b" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.52.42_PM.png"><img style="width:1242px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.52.42_PM.png"/></a></figure><figure id="8393f4ef-59c4-4e1b-a1b1-8a1b18909763" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%208393f4ef59c44e1ba1b18a1b18909763.html">الاجابه</a></figure><p id="49f9c1e2-b9dc-43a0-a823-19083f7952e1" class="">
+</p><p id="3e77c101-2dea-4e66-a757-a7a6d6e4d293" class="">
+</p><figure id="98ae6fcc-efda-4c33-8df3-188fff1e6b14" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.52.58_PM.png"><img style="width:1214px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.52.58_PM.png"/></a></figure><figure id="b0d406b0-3529-4bdb-86f1-e57195fa7e52" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20b0d406b035294bdb86f1e57195fa7e52.html">الاجابه</a></figure><p id="0afd4e96-d769-447b-a457-963f145002a3" class="">
+</p><p id="48fbd9fa-75e6-4f96-a2d6-15e268ef698d" class="">
+</p><figure id="1fbeecf3-c6a2-44de-aa35-6f7978e5545a" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.53.20_PM.png"><img style="width:1184px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.53.20_PM.png"/></a></figure><figure id="e9dd64b6-00f9-4ad4-89e5-9e4767a59036" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20e9dd64b600f94ad489e59e4767a59036.html">الاجابه</a></figure><p id="9e2a38db-148f-42e8-a7a6-a30a6fa56afa" class="">
+</p><p id="ba9956d7-22b6-406f-bc1b-3b2193305565" class="">
+</p><p id="6249935b-95ea-469f-8726-ec738a9de50e" class="">
+</p><figure id="0808d91d-fa30-4499-98bb-31a660aa6415" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.53.43_PM.png"><img style="width:1188px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.53.43_PM.png"/></a></figure><figure id="14921324-0419-4939-befc-1338315b86a3" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201492132404194939befc1338315b86a3.html">الاجابه</a></figure><p id="3bedd0a9-deca-4fbf-a605-4952e9e2f19d" class="">
+</p><p id="09f5a4c5-8954-45bd-8c8c-ffada22d0079" class="">
+</p><figure id="36107390-4255-45d4-8bbf-521128aaabf7" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.53.58_PM.png"><img style="width:1228px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.53.58_PM.png"/></a></figure><figure id="e1d6dbe4-ae70-4dcd-8cec-df77b45b3016" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20e1d6dbe4ae704dcd8cecdf77b45b3016.html">الاجابه</a></figure><p id="6df393f6-c1c2-406c-9d96-d1591612fbcf" class="">
+</p><p id="fc26a73b-99b3-4d71-b896-e9d448227292" class="">
+</p><figure id="145a997e-2107-44c4-8ea4-45836c17202f" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.54.15_PM.png"><img style="width:1218px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.54.15_PM.png"/></a></figure><figure id="459c2158-2eb0-4d44-bc4f-7ff9c0833edd" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20459c21582eb04d44bc4f7ff9c0833edd.html">الاجابه</a></figure><p id="94991b80-927b-4751-8d92-59ecb9e107ff" class="">
+</p><p id="c0ca7c17-7878-4e7f-b7d2-b719aa773401" class="">
+</p><figure id="7ef795ad-fa9a-4c17-8be6-69deeaf5413f" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.54.31_PM.png"><img style="width:1234px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_5.54.31_PM.png"/></a></figure><figure id="153953a1-58bf-49c6-b3ff-d37f7474a33a" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20153953a158bf49c6b3ffd37f7474a33a.html">الاجابه</a></figure><p id="7d294376-ff72-4a22-a0ab-3ed2640b31de" class="">
+</p><p id="c38a024c-0066-4613-8619-d6f84c1dd290" class="">
+</p><figure id="316c1c45-06c0-43bf-97bb-77a8f415a44e" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.02.59_PM.png"><img style="width:1208px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.02.59_PM.png"/></a></figure><figure id="9d3e9111-a14c-4f1f-876f-643478ff0d54" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%209d3e9111a14c4f1f876f643478ff0d54.html">الاجابه</a></figure><p id="d93ec671-56ef-4f3f-bb74-fb0029141b4d" class="">
+</p><p id="5b9a6f4a-cc71-4af0-9674-f8eb626c8afb" class="">
+</p><figure id="6443895f-b9a8-40be-aa33-8afdfd824ed3" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.06.19_PM.png"><img style="width:1240px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.06.19_PM.png"/></a></figure><figure id="e7d326dd-f0cd-46a4-b3e6-762b297a3b96" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.06.57_PM.png"><img style="width:1188px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.06.57_PM.png"/></a></figure><figure id="80ac8897-8522-411b-85fc-f9a2f37aa883" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.07.16_PM.png"><img style="width:1204px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.07.16_PM.png"/></a></figure><figure id="d863faa1-73f0-45d6-a6a5-32520fbdc115" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20d863faa173f045d6a6a532520fbdc115.html">الاجابه</a></figure><p id="ae7e8e94-ab03-4dc6-b54b-74daae5cb465" class="">
+</p><p id="318825c4-2c85-4e8e-9a5e-39e1426bddca" class="">
+</p><p id="5c4317f9-9968-4621-bef9-8cd21bb5d205" class=""><strong>س: ٢٤</strong></p><figure id="4d6fea26-a19e-4735-8a04-817cd2025e00" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.20.41_PM.png"><img style="width:1202px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.20.41_PM.png"/></a></figure><figure id="b42a745c-6e08-464a-9f2e-08fece36239b" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.20.55_PM.png"><img style="width:1136px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-16_at_7.20.55_PM.png"/></a></figure><p id="f5534280-ad0b-49e4-9877-36f08a624346" class="">
+</p><figure id="0f8d9173-f101-4d51-a4d3-4aefb5b2560b" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%200f8d9173f1014d51a4d34aefb5b2560b.html">الاجابه</a></figure><p id="2b6478af-1c50-49ad-95d0-c8e55db96c18" class="">
+</p><p id="e52aef61-11b5-42c3-bb4b-6e03495bfa08" class="">
+</p><p id="b4e76acd-f321-4829-a904-eea09a795db5" class=""><strong>س: ٢٥</strong></p><figure id="ba10a9e8-4178-4b72-98aa-7ece4cd7a559" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.37.19_AM.png"><img style="width:1412px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.37.19_AM.png"/></a></figure><figure id="dce90ce9-8dbf-4f77-b209-7c51d5d6a55c" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.37.53_AM.png"><img style="width:1408px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.37.53_AM.png"/></a></figure><figure id="4fa35a26-5a83-4683-bb07-2dc7640d42a6" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%204fa35a265a834683bb072dc7640d42a6.html">الاجابه</a></figure><p id="975fea4e-71ce-49d4-a7db-4c83ec8f3bf1" class="">
+</p><p id="93d27e59-295e-44e6-8277-aad99ce2a8a0" class=""><strong>س: ٢٦</strong></p><figure id="4e0485ed-f04e-4bac-b2e1-1e904c8a91c7" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.40.33_AM.png"><img style="width:1368px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.40.33_AM.png"/></a></figure><p id="869dc5e0-f7ee-4bee-9482-c791b549d8d7" class="">
+</p><figure id="f785f8ac-e918-495b-bc20-ecbbeec925c6" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.41.03_AM.png"><img style="width:1344px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.41.03_AM.png"/></a></figure><figure id="44caeea8-1adb-4c60-a69f-dcba1cbf6e85" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.41.12_AM.png"><img style="width:1280px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.41.12_AM.png"/></a></figure><figure id="f72d1338-f706-4393-9d7e-c20ed27c34a9" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20f72d1338f70643939d7ec20ed27c34a9.html">الاجابه</a></figure><p id="c08a547b-c922-4df4-83d2-2453381cb1f0" class="">
+</p><p id="e03e74e9-5897-4eca-beba-3dc9ade0ddba" class=""><strong>س: ٢٧</strong></p><figure id="4ffcb13a-f5d0-4759-9fe4-00e5788ccde5" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.46.17_AM.png"><img style="width:1402px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.46.17_AM.png"/></a></figure><p id="3d79b2a9-61f0-470d-9416-448dd7ab2055" class="">
+</p><figure id="33a7fbff-2633-4e64-ad94-3e07af6c4935" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.46.35_AM.png"><img style="width:1362px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.46.35_AM.png"/></a></figure><figure id="e5b5d4f1-ef38-44d7-9f7c-1fb143432b08" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.47.05_AM.png"><img style="width:1406px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.47.05_AM.png"/></a></figure><figure id="b794e4a3-86bb-4583-86ff-8366cbb3d7c3" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.47.39_AM.png"><img style="width:1324px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.47.39_AM.png"/></a></figure><figure id="b3b43431-7f3f-4070-819a-e22d9de7ece5" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20b3b434317f3f4070819ae22d9de7ece5.html">الاجابه</a></figure><p id="d344cb4e-38dd-41fb-a685-a0bf43c05daa" class="">
+</p><p id="db443704-7833-4a61-ad35-56ddcc4a313c" class="">
+</p><p id="259f3be3-3528-465b-bb58-66ab1bd4f4dc" class=""><strong>س: ٢٨</strong></p><figure id="00339cbd-9491-4335-961d-d0b9bd78141c" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.48.49_AM.png"><img style="width:1396px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.48.49_AM.png"/></a></figure><figure id="73256da1-c4a5-4cf0-9fc0-ab1c8089dfcf" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2073256da1c4a54cf09fc0ab1c8089dfcf.html">الاجابه</a></figure><p id="c2b1fd2d-012f-487c-898d-3155e89efba2" class="">
+</p><p id="45368873-388a-4984-8760-31aae9869167" class=""><strong>س: ٢٩</strong></p><figure id="96faead7-09db-4cc6-825e-908d2b6d7fc4" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.49.18_AM.png"><img style="width:1290px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.49.18_AM.png"/></a></figure><figure id="dd2958d1-e5c9-4ecd-895a-a66af3e5bc42" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20dd2958d1e5c94ecd895aa66af3e5bc42.html">الاجابه</a></figure><p id="96090ff2-8ec1-477c-872f-0e5092d63702" class="">
+</p><p id="c93c650c-ee75-4548-b744-70d4d568b92f" class=""><strong>س: ٣٠</strong></p><figure id="7ce40c9e-d05d-4816-8cf3-19a764b89817" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.50.03_AM.png"><img style="width:1434px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.50.03_AM.png"/></a></figure><figure id="10590a6c-ed97-4839-9d77-e716f5ab0966" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.50.22_AM.png"><img style="width:1392px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.50.22_AM.png"/></a></figure><figure id="f88b3213-90eb-4271-9de9-2a988af6dcac" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.50.31_AM.png"><img style="width:1384px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.50.31_AM.png"/></a></figure><figure id="4083e3e8-64a9-480d-a4a6-fd244615cefb" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%204083e3e864a9480da4a6fd244615cefb.html">الاجابه</a></figure><p id="4aaf52d7-18c6-483b-887b-032cf2b127cc" class="">
+</p><p id="075201c5-aeea-41d9-8398-19acae9872c2" class=""><strong>س: ٣١</strong></p><figure id="8e2e956e-6024-451b-b90b-5591cf532896" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.51.16_AM.png"><img style="width:1350px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.51.16_AM.png"/></a></figure><figure id="5384ce8f-e84a-4b0f-ac48-db94a0eb76d0" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%205384ce8fe84a4b0fac48db94a0eb76d0.html">الاجابه</a></figure><p id="b62b9884-2e6e-4a41-b0dc-ad4471c7efea" class="">
+</p><p id="d1d0778a-4a04-4521-b3aa-94705df1baa0" class=""><strong>س: ٣٢</strong></p><figure id="47be77ae-f7b3-4242-82f1-1a421d4ec0dd" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.51.33_AM.png"><img style="width:1408px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.51.33_AM.png"/></a></figure><figure id="434a65fb-4f81-4f83-be6e-1a18a3fb44bb" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.51.42_AM.png"><img style="width:1352px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.51.42_AM.png"/></a></figure><figure id="9616a7d0-2e84-4ef9-8b20-8d2ac65f7288" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%209616a7d02e844ef98b208d2ac65f7288.html">الاجابه</a></figure><p id="720e54d0-16e4-4ed8-9d5d-4a5b488be302" class="">
+</p><p id="6c908b56-3287-45b2-8703-de92b038d49c" class=""><strong>س: ٣٤</strong></p><figure id="1bfb3aa0-534e-436c-97f8-3f34e0c62bca" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.52.22_AM.png"><img style="width:1422px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.52.22_AM.png"/></a></figure><figure id="4ffcc130-1931-461e-bcb4-b5a71725d9af" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%204ffcc1301931461ebcb4b5a71725d9af.html">الاجابه</a></figure><p id="e55ec15c-ce9b-466f-a38a-451f4658a1cc" class="">
+</p><p id="c761940a-b22e-4ef9-973b-5f48018a0f1e" class=""><strong>س: ٣٥</strong></p><figure id="333643e9-f330-400e-be1b-ba09579b6191" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.52.41_AM.png"><img style="width:1414px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.52.41_AM.png"/></a></figure><figure id="a1fc90df-a8ec-4f6e-a7d6-9debe39ae6f2" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a1fc90dfa8ec4f6ea7d69debe39ae6f2.html">الاجابه</a></figure><p id="a34b9a98-316b-4c42-a929-f87bc87ae12a" class="">
+</p><p id="299a51cc-aa21-4141-92dd-ef87ab1428a3" class=""><strong>س: ٣٦</strong></p><figure id="8d6dd423-5280-4017-9010-365b27e881c6" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.52.55_AM.png"><img style="width:1326px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.52.55_AM.png"/></a></figure><figure id="8986fada-2f1b-4626-8bd5-ad69593e9d99" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%208986fada2f1b46268bd5ad69593e9d99.html">الاجابه</a></figure><p id="827d057b-0c4f-4fcb-8a05-a11769e0d025" class="">
+</p><p id="accec972-a051-4a55-8d27-3eb52b9fd7de" class=""><strong>س: ٣٧</strong></p><figure id="3211b52d-7d1d-4b0e-bb6c-160b0e8e0d53" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.53.08_AM.png"><img style="width:1412px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.53.08_AM.png"/></a></figure><figure id="961170f8-3d65-44e9-b4bd-9f8ff8dc2bc6" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20961170f83d6544e9b4bd9f8ff8dc2bc6.html">الاجابه</a></figure><p id="e708aa5d-cccf-43ca-ac52-db08868daafa" class="">
+</p><p id="a272eb34-a1cc-4829-b0b2-f8e377678dea" class=""><strong>س: ٣٨</strong></p><figure id="bdaacd69-b837-45bf-820a-8060939a2b47" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.53.19_AM.png"><img style="width:1414px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_3.53.19_AM.png"/></a></figure><figure id="dc396b14-63ca-460f-8fbc-cbf22ca1f07e" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20dc396b1463ca460f8fbccbf22ca1f07e.html">الاجابه</a></figure><p id="fc2b8269-766d-4bc1-888f-e1ec05b6994f" class="">
+</p><p id="09567dc2-219e-46ab-9689-6bfb9f03363b" class=""><strong>س: ٣٩</strong></p><figure id="fd6a40fb-c814-4ad3-8dc1-2d9b59d1b18b" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.20.03_AM.png"><img style="width:926px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.20.03_AM.png"/></a></figure><figure id="30f1ee39-fb07-4041-bd11-c7f30e642d72" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2030f1ee39fb074041bd11c7f30e642d72.html">الاجابه</a></figure><p id="33ee3abb-d76b-44dc-b10f-6b446d910ea8" class="">
+</p><p id="a10cda1e-75e1-4d6e-ba41-46e3ee0e834a" class="">
+</p><p id="e3498ccd-da3a-4b06-bad3-97cf9ec9ab62" class=""><strong>س: ٤٠</strong></p><figure id="47cbb800-b73b-458b-a756-cc04ea8d00fc" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.20.41_AM.png"><img style="width:1234px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.20.41_AM.png"/></a></figure><figure id="ff185d8c-8196-4ca9-81a7-ac886d92a930" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20ff185d8c81964ca981a7ac886d92a930.html">الاجابه</a></figure><p id="2550bbe8-9f22-4de6-8edd-5c2996abd17b" class="">
+</p><p id="46adae1c-96c0-4d38-9448-277e2eb5de00" class=""><strong>س: ٤١</strong></p><figure id="e3aee41d-43a6-4085-9b51-2a69b946a53b" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.21.07_AM.png"><img style="width:1236px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.21.07_AM.png"/></a></figure><figure id="e3f005b7-4e58-4e01-ac06-301e8762f237" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20e3f005b74e584e01ac06301e8762f237.html">الاجابه</a></figure><p id="fc68fd45-2717-4a0b-8b48-3135bf761b01" class="">
+</p><p id="bcbd8b2f-8c94-4e40-a903-4dcdfbd65d46" class="">
+</p><p id="9c8fc67c-49c5-42e5-8f65-b61d0303f9a6" class=""><strong>س: ٤٢</strong></p><figure id="b89f5340-ac83-4a0b-b612-3a57e09161a0" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.21.32_AM.png"><img style="width:1192px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.21.32_AM.png"/></a></figure><figure id="118984be-3558-49cf-bd3f-c680fdf66765" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20118984be355849cfbd3fc680fdf66765.html">الاجابه</a></figure><p id="a1b179a3-5a06-45b9-9482-1d50662a8aeb" class="">
+</p><p id="4141b173-a3a2-47a5-a41d-c8d1b61b3f97" class="">
+</p><p id="95f174b5-542a-4e73-9b85-0905f11ac2df" class=""><strong>س: ٤٣</strong></p><figure id="5c3bc91d-7b85-469d-814d-5ab9f95a85a3" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.21.58_AM.png"><img style="width:1216px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.21.58_AM.png"/></a></figure><figure id="ad21349a-3a1e-4a2c-bef9-4fee8ca9885c" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20ad21349a3a1e4a2cbef94fee8ca9885c.html">الاجابه</a></figure><p id="9d5c939f-3e72-44f0-94f8-46f79d25aaf6" class="">
+</p><p id="d72512ce-679d-4c90-87eb-4c97677254ab" class=""><strong>س: ٤٤</strong></p><figure id="99a83343-eeb8-4a64-b528-8b8b4accb13f" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.22.30_AM.png"><img style="width:1056px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.22.30_AM.png"/></a></figure><figure id="8401bf4b-2af5-4c3b-90fd-91e8a438d2a5" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%208401bf4b2af54c3b90fd91e8a438d2a5.html">الاجابه</a></figure><p id="120a889f-252a-476a-82b5-74cbb406bacf" class="">
+</p><p id="fd7387f4-4d99-4069-8137-cccf6c557ab2" class=""><strong>س: ٤٥</strong></p><figure id="110a8089-6d84-44cf-b887-b34c8cf7ded5" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.23.00_AM.png"><img style="width:1224px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.23.00_AM.png"/></a></figure><figure id="8ec7ec0c-2c47-4331-916d-3d63358bb00a" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%208ec7ec0c2c474331916d3d63358bb00a.html">الاجابه</a></figure><p id="40719de2-7b31-49e8-becb-0039ce58beb8" class="">
+</p><p id="49510945-04c6-4110-a567-0488e4e1908f" class=""><strong>س: ٤٦</strong></p><figure id="cb2815a7-1d3d-419d-a5ca-d15ea558a128" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.24.14_AM.png"><img style="width:1056px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.24.14_AM.png"/></a></figure><figure id="33c820ce-f83e-47be-9052-c7bf8fd7cbed" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2033c820cef83e47be9052c7bf8fd7cbed.html">الاجابه</a></figure><p id="22b721aa-2056-4ea6-8f51-d79f74ae97ed" class="">
+</p><p id="8bc59ad7-5e74-4fe1-a08a-2924e408492d" class=""><strong>س: ٤٧</strong></p><figure id="58a917ea-5e97-4026-976b-a7ec5c336983" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.24.52_AM.png"><img style="width:1060px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.24.52_AM.png"/></a></figure><figure id="c3cd37fd-6d68-475c-b470-9b4d46725bad" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20c3cd37fd6d68475cb4709b4d46725bad.html">الاجابه</a></figure><p id="8c547e32-84d5-4b29-935d-3f1954016383" class="">
+</p><p id="fe2772cd-92aa-4f18-a3f8-8957f3c621dc" class=""><strong>س: ٤٨</strong></p><figure id="1270d660-ded5-442e-8e59-0e07bf577ae3" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.25.08_AM.png"><img style="width:802px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.25.08_AM.png"/></a></figure><figure id="12d3c9d7-82d8-4e32-992a-1c79e93bd427" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2012d3c9d782d84e32992a1c79e93bd427.html">الاجابه</a></figure><p id="1b983cb6-6dd9-49b6-bd54-f30f8048d08c" class="">
+</p><p id="bca5b068-7011-4410-83e5-e3fce4dd6f15" class=""><strong>س: ٤٩</strong></p><figure id="a344bf7c-747f-42c8-85d9-79e1843267b4" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.25.24_AM.png"><img style="width:1236px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.25.24_AM.png"/></a></figure><figure id="ddc3cc7e-d517-4deb-94e5-aafae206bd0d" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20ddc3cc7ed5174deb94e5aafae206bd0d.html">الاجابه</a></figure><p id="710fdaf0-6383-453b-a41f-77bf4a98cc69" class="">
+</p><p id="18c243dc-1356-4339-9d7e-e9de690f650a" class=""><strong>س: ٥٠</strong></p><figure id="3b429603-2fb4-433c-b28b-725dbb54d5b3" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.25.35_AM.png"><img style="width:932px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.25.35_AM.png"/></a></figure><figure id="550cb039-c48d-4b94-be57-8f025867761d" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20550cb039c48d4b94be578f025867761d.html">الاجابه</a></figure><p id="e84de4e5-c829-455f-8a2c-04382a388bd3" class="">
+</p><p id="753b5012-be91-40f2-8069-9724f2af8246" class=""><strong>س: ٥١</strong></p><figure id="7e591187-9bbf-4c14-aab2-583c945ad898" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.25.46_AM.png"><img style="width:1222px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.25.46_AM.png"/></a></figure><figure id="2469bb24-3d6c-49d8-a9a4-34fe822009b5" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%202469bb243d6c49d8a9a434fe822009b5.html">الاجابه</a></figure><p id="223d906b-b501-4909-aa93-df033e1784c3" class="">
+</p><p id="f5bc6fe1-435f-49ca-915a-8a53eab3a15e" class=""><strong>س: ٥٢</strong></p><figure id="a915b384-c254-400b-9f47-9ee5cedce2a1" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.25.59_AM.png"><img style="width:1220px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.25.59_AM.png"/></a></figure><figure id="814abad5-6132-4a7e-b3d5-efd0f20c2b91" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20814abad561324a7eb3d5efd0f20c2b91.html">الاجابه</a></figure><p id="6ef77233-c105-4911-b798-de8285400b6c" class="">
+</p><p id="44732eca-bc80-4be7-a127-9d3711a8eb5a" class=""><strong>س: ٥٣</strong></p><figure id="854e4da4-6cf5-494e-9369-c629442649ba" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.26.10_AM.png"><img style="width:976px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.26.10_AM.png"/></a></figure><figure id="2787b853-610c-4998-8150-5a1576f28367" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%202787b853610c499881505a1576f28367.html">الاجابه</a></figure><p id="372a9e0f-2d63-4ee9-bb32-47aa269c3413" class="">
+</p><p id="51f23329-f6ac-42c8-8ed4-f0f121368f58" class=""><strong>س: ٥٤</strong></p><figure id="5786a0aa-b9ea-4d62-9c41-91d9400f9c7e" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.26.21_AM.png"><img style="width:1170px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.26.21_AM.png"/></a></figure><figure id="137bdcaf-0a3a-44f0-b36e-94bf7b269982" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20137bdcaf0a3a44f0b36e94bf7b269982.html">الاجابه</a></figure><p id="3acab2b2-c7a3-4865-872e-ef106743c801" class="">
+</p><p id="764c79f3-03ff-414d-b467-010ed83fbe05" class=""><strong>س٥٥</strong></p><figure id="c6276a11-2241-41d4-afb0-b5b8f010dbab" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.26.31_AM.png"><img style="width:1060px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.26.31_AM.png"/></a></figure><figure id="dee406ec-5f29-4358-98d7-3abb910ae5e3" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20dee406ec5f29435898d73abb910ae5e3.html">الاجابه</a></figure><p id="2ca56762-0bd7-4e0c-9e9e-5b6e793ee8fc" class="">
+</p><p id="1308effe-2f04-4c07-80df-698129473b0e" class=""><strong>س: ٥٦</strong></p><figure id="0d2ad0eb-6db9-494b-8c67-8426916d59cd" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.26.42_AM.png"><img style="width:1174px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.26.42_AM.png"/></a></figure><figure id="f3b975cf-dc06-4936-aa54-64cbe90fc935" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20f3b975cfdc064936aa5464cbe90fc935.html">الاجابه</a></figure><p id="cc9d9f2f-1daa-410d-a8ea-0dfa8e231cc8" class="">
+</p><p id="adc5141c-172b-495f-bfa9-a3ad486ad1e8" class=""><strong>س: ٥٧</strong></p><figure id="4ec9a5ee-4188-46ab-bd34-4106405c055f" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.26.54_AM.png"><img style="width:1212px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.26.54_AM.png"/></a></figure><figure id="01bcd29b-bb46-469a-853d-3a5ac3c75bd3" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2001bcd29bbb46469a853d3a5ac3c75bd3.html">الاجابه</a></figure><p id="8187a515-253c-4624-a2c3-d65647658061" class="">
+</p><p id="696bb376-0303-4ba1-a15b-6657e84cb039" class=""><strong>س: ٥٨</strong></p><figure id="938a301d-7067-4e88-961a-839201a52c0d" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.27.04_AM.png"><img style="width:1208px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.27.04_AM.png"/></a></figure><figure id="6ec25200-ef9c-48bb-859f-ef250dbd9963" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%206ec25200ef9c48bb859fef250dbd9963.html">الاجابه</a></figure><p id="09d3f6eb-17b5-432d-a145-3a5e1014fda7" class="">
+</p><p id="5593d30a-6d27-40a9-a5eb-e5a620b9825d" class=""><strong>س: ٥٩</strong></p><figure id="2df56b1d-52cc-445a-b028-a8e5fddc48a5" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.27.16_AM.png"><img style="width:1098px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.27.16_AM.png"/></a></figure><figure id="1b686fb8-dc12-412a-8781-317defcbde61" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201b686fb8dc12412a8781317defcbde61.html">الاجابه</a></figure><p id="58e36f91-d939-4e5c-879c-c7e997671c48" class="">
+</p><p id="353bf1b1-8b07-4f2e-b47d-b9c351e91550" class=""><strong>س: ٦٠</strong></p><figure id="de4fa2ee-1b67-46cc-b67a-19b042774df2" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.27.29_AM.png"><img style="width:1162px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.27.29_AM.png"/></a></figure><figure id="63223fd9-c442-41b2-a49e-cb8e65b9244d" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2063223fd9c44241b2a49ecb8e65b9244d.html">الاجابه</a></figure><p id="99aefb1c-94f6-47b2-b728-18aaee15f1ab" class="">
+</p><p id="2f4a38b2-9006-4ebf-9bf6-ed7aac066451" class=""><strong>س: ٦١</strong></p><figure id="64398617-d03d-476d-8660-7a4dd6725127" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.31.14_AM.png"><img style="width:1898px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.31.14_AM.png"/></a></figure><figure id="8c37d807-702a-40c1-8dc5-23b5348c1c4c" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%208c37d807702a40c18dc523b5348c1c4c.html">الاجابه</a></figure><p id="a6ad5d9f-7d6e-47fe-ba97-2539893a61dc" class="">
+</p><p id="1088a29d-95c3-4f5b-bfa2-0e35ca39759b" class=""><strong>س: ٦٢</strong></p><figure id="0bc3173a-78a8-4c11-9e1e-57045ea0cb80" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.31.29_AM.png"><img style="width:1936px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.31.29_AM.png"/></a></figure><figure id="9758609d-906b-4ebb-833c-16508b5f372f" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%209758609d906b4ebb833c16508b5f372f.html">الاجابه</a></figure><p id="88556774-6a8b-471e-8726-ac0b5d92ded3" class="">
+</p><p id="f9a30728-c4b4-4d07-acf1-0ee355625141" class=""><strong>س: ٦٣</strong></p><figure id="449cb4ba-ad05-4499-8dad-8dd3fa587637" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.31.41_AM.png"><img style="width:1946px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.31.41_AM.png"/></a></figure><figure id="1fd19233-d70e-4db7-a2ce-d35fcd3cd73a" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201fd19233d70e4db7a2ced35fcd3cd73a.html">الاجابه</a></figure><p id="b72207af-2040-4bdd-a4cf-e5bc9a968344" class="">
+</p><p id="a02ef21b-55db-4d3f-8933-52c5ab423927" class=""><strong>س: ٦٤</strong></p><figure id="aad65c44-6d85-4abe-b926-a62dae73381c" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.31.55_AM.png"><img style="width:1512px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.31.55_AM.png"/></a></figure><figure id="7da6ad39-358c-45f1-bd17-51865f25fa30" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%207da6ad39358c45f1bd1751865f25fa30.html">الاجابه</a></figure><p id="cdc99a90-0e48-46d9-b9b8-c80f258506eb" class="">
+</p><p id="0faa4ac1-2e3d-4fcf-b537-78476f60b087" class=""><strong>س: ٦٥</strong></p><figure id="5dd45f22-5b90-4d2e-967c-c230849673e0" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.32.05_AM.png"><img style="width:1940px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.32.05_AM.png"/></a></figure><figure id="148af253-6dcc-4413-a043-9234285091c5" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20148af2536dcc4413a0439234285091c5.html">الاجابه</a></figure><p id="1438ab5b-8c4d-4077-90db-d046115f2603" class="">
+</p><p id="5d3d9423-8506-4adf-a914-1dcbe9fd49c3" class=""><strong>س: ٦٦</strong></p><figure id="65cebf1a-66e8-4dea-bb3e-d153e6170f42" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.32.46_AM.png"><img style="width:1456px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.32.46_AM.png"/></a></figure><figure id="4c9aa2a6-307c-4629-b68a-a1f8e3a86a76" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%204c9aa2a6307c4629b68aa1f8e3a86a76.html">الاجابه</a></figure><p id="c9279d91-9fb1-43ff-a7c8-44efbd2216e9" class="">
+</p><p id="55c0baa1-1295-43e5-97a3-d31d4b143a48" class=""><strong>س: ٦٧</strong></p><figure id="54d05ca1-733a-4afa-9d8c-6a4d16667e8b" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.33.00_AM.png"><img style="width:1974px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.33.00_AM.png"/></a></figure><figure id="bc51c407-726c-471c-b550-4a97d71c8f4c" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20bc51c407726c471cb5504a97d71c8f4c.html">الاجابه</a></figure><p id="a40b3517-d090-4186-a1d2-592b74de3b7d" class="">
+</p><p id="c248f34e-bf5b-4f85-8fac-fa52b9bee089" class=""><strong>س: ٦٨</strong></p><figure id="a7ad9759-82a5-4fd3-8001-200090322d1e" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.33.16_AM.png"><img style="width:1094px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.33.16_AM.png"/></a></figure><figure id="27437ff9-5dd8-4857-9b82-a5537164ad74" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2027437ff95dd848579b82a5537164ad74.html">الاجابه</a></figure><p id="a3661681-4703-4e3e-85ce-755d4501a3af" class="">
+</p><p id="3ed10de6-69b5-4868-9a9a-f3b91ba19bf6" class=""><strong>س: ٦٩</strong></p><figure id="5017bf59-ece4-4f37-8d53-25d5cb5242ef" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.33.32_AM.png"><img style="width:1292px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.33.32_AM.png"/></a></figure><figure id="f3d25fc0-99d8-474a-b960-67907b4b0721" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20f3d25fc099d8474ab96067907b4b0721.html">الاجابه</a></figure><p id="86b77a62-fc49-47e9-a462-84af692c02fe" class="">
+</p><p id="b550be1c-9ff6-4d63-a0a0-9d4da4c09679" class=""><strong>س: ٧٠</strong></p><figure id="625dfda7-736a-4047-98e0-7efafbcd6855" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.33.46_AM.png"><img style="width:1396px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.33.46_AM.png"/></a></figure><figure id="0052438f-79c0-4af8-8d1e-554e37c62e16" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%200052438f79c04af88d1e554e37c62e16.html">الاجابه</a></figure><p id="e3ef284f-adbf-4666-b6b3-3e1d7d7207b4" class="">
+</p><p id="0d617efd-4ae9-4ad8-9eb0-348c0e786890" class=""><strong>س: ٧١</strong></p><figure id="91b948d0-88d6-420f-87a9-f128ce4f1266" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.35.36_AM.png"><img style="width:1202px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.35.36_AM.png"/></a></figure><figure id="d2d048a5-59a2-4912-abd3-b2d78967d928" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20d2d048a559a24912abd3b2d78967d928.html">الاجابه</a></figure><p id="20c0bea2-2021-4c50-b127-706df8bc7769" class="">
+</p><p id="4c20867c-5b48-4480-bfbc-f290f52764eb" class=""><strong>س: ٧٢</strong></p><figure id="cad94823-a5d1-4dd6-9490-ca51b52d3739" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.35.59_AM.png"><img style="width:1148px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.35.59_AM.png"/></a></figure><figure id="765ed751-be93-4db3-b7a4-bb9e16c01b4b" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20765ed751be934db3b7a4bb9e16c01b4b.html">الاجابه</a></figure><p id="7d0bddc1-45ff-4ea7-ada4-81a07c029b7e" class="">
+</p><p id="091fc2f0-de18-4f47-b67d-4dd5ae906686" class=""><strong>س: ٧٣</strong></p><figure id="a7da49f1-d8b3-42c5-bb90-3f3484463007" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.36.18_AM.png"><img style="width:1180px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.36.18_AM.png"/></a></figure><figure id="1cb415dc-e08d-40e2-8a87-df5112c784d6" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201cb415dce08d40e28a87df5112c784d6.html">الاجابه</a></figure><p id="d9e34050-6909-41a2-861d-f110cdc0eed8" class="">
+</p><p id="ccb9691a-b7c6-4c1b-9a38-d9e2e4cf6679" class=""><strong>س: ٧٤</strong></p><figure id="72c72563-a2d1-4371-820f-99cc585bf745" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.36.29_AM.png"><img style="width:1234px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.36.29_AM.png"/></a></figure><figure id="64915e17-fce9-4153-b84d-1487752dfdbd" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2064915e17fce94153b84d1487752dfdbd.html">الاجابه</a></figure><p id="9e0e6ca3-b595-45da-b032-c4e3865ea905" class="">
+</p><p id="33b4d491-3ae9-4cdf-baf3-8f871bcce8f6" class=""><strong>س: ٧٥</strong></p><figure id="03965cc9-40e4-4c48-b156-c0b3f1d4f262" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.36.47_AM.png"><img style="width:1236px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.36.47_AM.png"/></a></figure><figure id="9c72b012-0c4b-4051-afcb-ae1304405c6e" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%209c72b0120c4b4051afcbae1304405c6e.html">الاجابه</a></figure><p id="8d3ad766-ce52-408f-856e-6f0e8528a358" class="">
+</p><p id="3801e2be-05d6-44df-8186-217e9dfd6a58" class=""><strong>س: ٧٦</strong></p><figure id="998970b2-dcb8-4f3a-8a72-9e072d5fbf45" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.37.09_AM.png"><img style="width:1176px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.37.09_AM.png"/></a></figure><figure id="2c637781-3602-4ad5-a2d8-9a51a222abef" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%202c63778136024ad5a2d89a51a222abef.html">الاجابه</a></figure><p id="700c0b5c-bbcb-4bd4-acb4-ba50f4c60c7b" class="">
+</p><p id="48b8cbd9-a670-4ac3-8f6d-0311876418e4" class=""><strong>س: ٧٧</strong></p><figure id="bcdb7428-7514-4352-a1f0-a5792c30f9f3" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.37.23_AM.png"><img style="width:1236px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.37.23_AM.png"/></a></figure><figure id="a883109d-acc0-4732-951c-cca5d0857ed3" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a883109dacc04732951ccca5d0857ed3.html">الاجابه</a></figure><p id="8b8e46c2-1b11-43d4-9e37-a805c0acc161" class="">
+</p><p id="b0f7858f-f2b7-41a2-bb05-55e15a4f33cd" class=""><strong>س: ٧٨</strong></p><figure id="95cf1632-66a3-485c-a2a0-9c709b9a53b6" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.37.48_AM.png"><img style="width:1058px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.37.48_AM.png"/></a></figure><figure id="009f5f56-2908-41a5-9ad3-72b6473b5d76" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20009f5f56290841a59ad372b6473b5d76.html">الاجابه</a></figure><p id="fc7f49be-45ab-4c90-9676-96a4018fa4bf" class="">
+</p><p id="f2c8c6e2-52e2-47a4-9d91-3cf9d05cc865" class=""><strong>س: ٧٩</strong></p><figure id="88d3bc3c-9e9a-4a81-a508-c98883a8b8a9" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.38.28_AM.png"><img style="width:1106px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.38.28_AM.png"/></a></figure><figure id="dcdef6d6-0728-496e-bd78-da0d558e00f4" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20dcdef6d60728496ebd78da0d558e00f4.html">الاجابه</a></figure><p id="ea1f3ce9-1d66-4846-b296-d49612a2a848" class="">
+</p><p id="f89bc59b-51c0-4402-af1a-6dd59c70044e" class=""><strong>س: ٨٠</strong></p><figure id="dae1f217-2cf8-448e-bd9a-d1bdf5eb069a" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.39.04_AM.png"><img style="width:1236px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.39.04_AM.png"/></a></figure><figure id="41bff051-32c2-4eda-8927-5c389e48b623" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2041bff05132c24eda89275c389e48b623.html">الاجابه</a></figure><p id="119c06b5-0712-4f4a-aefa-b61b4b9f2c51" class="">
+</p><p id="9f3cfeba-86cd-41a5-ad68-726944bcc14b" class=""><strong>س: ٨١</strong></p><figure id="4fd24484-9429-498d-bad7-62ee713fa203" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.39.56_AM.png"><img style="width:2016px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.39.56_AM.png"/></a></figure><figure id="f70a6ed7-1bfd-41ad-87cc-51fb4e51906d" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20f70a6ed71bfd41ad87cc51fb4e51906d.html">الاجابه</a></figure><p id="71da9dfa-c57d-4fad-a54f-dd7f4db96835" class="">
+</p><p id="945550e1-fdf3-4f67-8bc2-cc8e36f34a33" class=""><strong>س: ٨٢</strong></p><figure id="017502d2-bd9e-4889-bd5e-8fd5c99f156f" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.40.09_AM.png"><img style="width:1988px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.40.09_AM.png"/></a></figure><figure id="68dd47de-e363-4636-8cba-c0d3309b5357" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2068dd47dee36346368cbac0d3309b5357.html">الاجابه</a></figure><p id="aba5f42c-8f11-4be8-8423-a7871c92bd8a" class="">
+</p><p id="2e2a6a5b-8edc-482c-8d1e-c59dc58a50e1" class=""><strong>س: ٨٣</strong></p><figure id="c040a11b-c5eb-4be3-b7f0-9a110c567fea" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.40.27_AM.png"><img style="width:1078px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.40.27_AM.png"/></a></figure><figure id="897deb98-3d71-4ff3-8f95-c7f6de9b6470" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20897deb983d714ff38f95c7f6de9b6470.html">الاجابه</a></figure><p id="29787ee1-6cb2-4ce8-b43d-9ec7c54dcb6e" class="">
+</p><p id="386c1f98-169b-4002-b4aa-73dcf4df1f44" class=""><strong>س: ٨٤</strong></p><figure id="158d19bf-cd25-4a01-a7f0-e8fc324901af" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.40.41_AM.png"><img style="width:1920px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.40.41_AM.png"/></a></figure><figure id="23f6d12d-8916-4a2e-99db-543db9368b8d" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2023f6d12d89164a2e99db543db9368b8d.html">الاجابه</a></figure><p id="8acc9d7c-79ae-4d08-8bc6-6756d8e948b4" class="">
+</p><p id="259042b2-e295-41d0-95d5-7fde8e18a7b8" class=""><strong>س: ٨٥</strong></p><figure id="3f5391fa-dc0b-4174-ae13-cd7cf6ff931b" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.40.52_AM.png"><img style="width:2006px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-17_at_4.40.52_AM.png"/></a></figure><figure id="0aa08ac4-c6b3-405a-a21e-babf661f4387" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%200aa08ac4c6b3405aa21ebabf661f4387.html">الاجابه</a></figure><p id="ee92fc64-a23c-400e-8f3b-1a99a4d0b189" class="">
+</p><p id="253e2c88-0386-472b-b544-cf5201339c6f" class=""><strong>س: ٨٦</strong></p><figure id="fe6b7ffa-7da9-4caa-9f6c-26e1e20c3103" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.24.13_AM.png"><img style="width:1158px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.24.13_AM.png"/></a></figure><figure id="bb7e6e5e-e44c-4023-86c1-cb413c4ecf92" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20bb7e6e5ee44c402386c1cb413c4ecf92.html">الاجابه</a></figure><p id="08b05a0f-bac3-403d-96b6-dc00efce706e" class="">
+</p><p id="744dc1bd-228d-4eb1-9ec8-9efc43ac5037" class=""><strong>س: ٨٧</strong></p><figure id="3161860b-e86b-484a-8c58-bd7275533119" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.24.30_AM.png"><img style="width:706px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.24.30_AM.png"/></a></figure><figure id="f4773963-4848-4822-a9cc-1d184379748a" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20f477396348484822a9cc1d184379748a.html">الاجابه</a></figure><p id="7c85a877-17b5-47f8-a242-a2fd3285cbf1" class="">
+</p><p id="4a95e112-22ca-4c92-bcec-d8bcd3c9678a" class=""><strong>س: ٨٨</strong></p><figure id="af78bf63-65c6-434a-981f-7631d2d14a10" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.24.44_AM.png"><img style="width:1210px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.24.44_AM.png"/></a></figure><figure id="969a2abb-0e5a-4cb3-a1e3-b83ce6d7ab1e" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20969a2abb0e5a4cb3a1e3b83ce6d7ab1e.html">الاجابه</a></figure><p id="3a0c4ef5-43a2-4ece-bed6-ac3cccd13997" class="">
+</p><p id="1c6a6ef9-68f6-480b-9d60-c4c232257405" class=""><strong>س: ٨٩</strong></p><figure id="e8e7303f-4c4c-4e3f-93bb-632886eb8f73" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.24.58_AM.png"><img style="width:1232px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.24.58_AM.png"/></a></figure><figure id="fc09f936-5edb-401c-adb5-3f22ae1dc36f" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20fc09f9365edb401cadb53f22ae1dc36f.html">الاجابه</a></figure><p id="e7d53f3a-3cd4-4e55-abd7-989c0e9b2171" class="">
+</p><p id="1e5072f2-4962-49d8-ad15-7b8084110baf" class=""><strong>س: ٩٠</strong></p><figure id="00f48eb6-5a78-4526-84f8-edbf2483ec39" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.25.35_AM.png"><img style="width:1044px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.25.35_AM.png"/></a></figure><figure id="a9a3ee6d-6a32-48a3-895e-89e5c1850e69" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a9a3ee6d6a3248a3895e89e5c1850e69.html">الاجابه</a></figure><p id="dca3bb2f-728b-40dc-94f9-c859098ba742" class="">
+</p><p id="cea498b9-1392-40cf-a423-67de626daadd" class=""><strong>س: ٩١</strong></p><figure id="a765527e-6f80-4d50-ac41-71bcb5b82850" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.25.55_AM.png"><img style="width:994px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.25.55_AM.png"/></a></figure><figure id="35f822b7-9917-409a-970e-d714304deefa" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2035f822b79917409a970ed714304deefa.html">الاجابه</a></figure><p id="fb9bbdd2-4e40-4887-b981-02da7e641525" class="">
+</p><p id="20075820-4f29-4925-8cda-121032e0060d" class=""><strong>س: ٩٢</strong></p><figure id="468c9187-c80b-4ecf-9e76-90402bfa072a" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.26.12_AM.png"><img style="width:1018px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.26.12_AM.png"/></a></figure><figure id="27b7a027-9a3d-471a-b595-61e4bc4c3a18" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2027b7a0279a3d471ab59561e4bc4c3a18.html">الاجابه</a></figure><p id="b7ab8da9-ddab-4ed9-bf6d-5eec50d8bebe" class="">
+</p><p id="f14a9841-5c85-47b9-b279-a14a66924f9f" class=""><strong>س: ٩٣</strong></p><figure id="e59ee336-7ded-4807-b758-1993186230f6" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.26.30_AM.png"><img style="width:1048px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.26.30_AM.png"/></a></figure><figure id="c9152d02-0ae7-4226-8967-6db567c9bb1c" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20c9152d020ae7422689676db567c9bb1c.html">الاجابه</a></figure><p id="1b47f22b-6ae2-4e88-86f9-bef90bded1f7" class="">
+</p><p id="10b2f017-6b0c-49c3-aba8-6289284cbd5e" class=""><strong>س: ٩٤</strong></p><figure id="c60ae6e6-979f-46c1-9aaf-cb686da0d51d" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.26.46_AM.png"><img style="width:888px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.26.46_AM.png"/></a></figure><figure id="9b905061-dbbd-4225-b8d7-db83799b193d" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%209b905061dbbd4225b8d7db83799b193d.html">الاجابه</a></figure><p id="e4063395-4911-4739-8137-b7dd6c4ebb90" class="">
+</p><p id="5242f2e8-031a-44a2-be7f-35761c0058c6" class=""><strong>س: ٩٥</strong></p><figure id="a806fc20-1e42-4cd4-8186-977876fe614e" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.27.02_AM.png"><img style="width:976px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.27.02_AM.png"/></a></figure><figure id="2a3e70c7-9995-4392-bc36-d23ade1d5960" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%202a3e70c799954392bc36d23ade1d5960.html">الاجابه</a></figure><p id="35be8047-8f15-4ecd-96cc-49739ff922b6" class="">
+</p><p id="8fc1642d-10bb-4589-ab98-38807b8c37cf" class=""><strong>س: ٩٦</strong></p><figure id="e550c2f8-bfdf-4440-8a5c-87a855a890fe" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.27.14_AM.png"><img style="width:978px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.27.14_AM.png"/></a></figure><figure id="effecc98-2d45-413f-afa3-7f3a91988e41" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20effecc982d45413fafa37f3a91988e41.html">الاجابه</a></figure><p id="83a23816-a998-42f9-9086-fb26b8b5efe3" class="">
+</p><p id="e54089ed-7b69-48e4-8636-698f80dff220" class=""><strong>س: ٩٧</strong></p><figure id="8ee5b82d-941b-4b98-9b1a-24d1105cbce8" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.27.27_AM.png"><img style="width:1000px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.27.27_AM.png"/></a></figure><figure id="cd0cdfdf-bcc7-49db-b72b-a0d728f00de7" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20cd0cdfdfbcc749dbb72ba0d728f00de7.html">الاجابه</a></figure><p id="38863683-ac45-43ba-a646-bc252a2fe77b" class="">
+</p><p id="66c279ab-0b98-4cb2-a065-290f9410258a" class=""><strong>س: ٩٨</strong></p><figure id="e7b99668-e07b-46d8-ad6f-5df4759c9fd5" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.27.41_AM.png"><img style="width:528px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.27.41_AM.png"/></a></figure><figure id="8f6ce4e3-6a4c-4778-af86-cce501416911" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%208f6ce4e36a4c4778af86cce501416911.html">الاجابه</a></figure><p id="3a21202b-d226-4ff1-bd38-170e7a5a2c89" class="">
+</p><p id="7130b01a-f1a5-44a5-954f-8fc52d9d07fd" class=""><strong>س: ٩٩</strong></p><figure id="15541f03-47c6-42a8-ba0e-28c1ff961b9f" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.27.57_AM.png"><img style="width:926px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.27.57_AM.png"/></a></figure><figure id="1a1d5e97-8877-4154-a16a-6eacc15c3c99" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201a1d5e9788774154a16a6eacc15c3c99.html">الاجابه</a></figure><p id="722468a2-0bab-4283-9a71-1a7735cb3361" class="">
+</p><p id="54df5dce-947a-426d-b04b-b1a55818efc0" class=""><strong>س: ١٠٠</strong></p><figure id="f76a70bb-4130-4a72-9aba-14ec089d22cf" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.28.11_AM.png"><img style="width:706px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.28.11_AM.png"/></a></figure><figure id="d89a63f7-829e-472f-a20d-e75bcb5061fb" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20d89a63f7829e472fa20de75bcb5061fb.html">الاجابه</a></figure><p id="a7aa6456-9206-4a61-aab0-37243994e949" class="">
+</p><p id="5cc6f49e-0ee2-4e32-b2f2-567fa5dac79e" class="">
+</p><p id="3855445b-cd0b-4ab6-b0d4-d544caf3cfe2" class=""><strong>س: ١٠١</strong></p><figure id="d303e2fd-6de2-461b-b3ea-a0c3cb29a47e" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.28.25_AM.png"><img style="width:724px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.28.25_AM.png"/></a></figure><figure id="f5f37ddb-fd39-4073-b67f-db0a8706af70" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20f5f37ddbfd394073b67fdb0a8706af70.html">الاجابه</a></figure><p id="b0103716-3783-43e3-95fc-ab021bb0a5ee" class="">
+</p><p id="36e23c16-ed97-442e-bf3f-7eee1ee82b35" class=""><strong>س: ١٠٢</strong></p><figure id="195166f1-43e3-4ec1-8743-45db0cc75724" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.28.39_AM.png"><img style="width:1036px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.28.39_AM.png"/></a></figure><figure id="b098f4a1-0132-4050-a690-541e8e17cb64" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20b098f4a101324050a690541e8e17cb64.html">الاجابه</a></figure><p id="270f0fcc-fd3d-48e6-8bff-bad9deedeff8" class="">
+</p><p id="05ee080e-1f41-4dd2-bada-4074d3df87a7" class=""><strong>س: ١٠٣</strong></p><figure id="84886cdd-e7b2-4c03-b51a-6e983153c8ad" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.28.53_AM.png"><img style="width:1018px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.28.53_AM.png"/></a></figure><figure id="986d2b63-8be4-442d-9a18-ddcf874d3081" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20986d2b638be4442d9a18ddcf874d3081.html">الاجابه</a></figure><p id="6e15cf41-0645-4ac6-84ca-74f99c6d9f14" class="">
+</p><p id="9ca2fab5-8cb3-4ac0-ba1b-09318085ab91" class=""><strong>س: ١٠٤</strong></p><figure id="2f01eb18-4103-44af-8ed5-75a3c8fdf6b1" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.29.04_AM.png"><img style="width:998px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.29.04_AM.png"/></a></figure><figure id="be9758d5-34c9-4c27-ac6d-9b93576ce4f2" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20be9758d534c94c27ac6d9b93576ce4f2.html">الاجابه</a></figure><p id="071193d3-4783-4b08-935f-d37e80a397eb" class="">
+</p><p id="35307477-a4fb-4b3d-890b-b72c9c9d789f" class=""><strong>س: ١٠٥</strong></p><figure id="a042291a-9bf8-4108-b677-e89106ff0728" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.29.17_AM.png"><img style="width:830px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.29.17_AM.png"/></a></figure><figure id="91b1b982-b12f-44f3-b973-f0453296918b" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2091b1b982b12f44f3b973f0453296918b.html">الاجابه</a></figure><p id="3e0ea850-3ac9-4334-9084-fa42256b3b6b" class="">
+</p><p id="ce70d9c7-74e4-4b7b-90ab-e3c5c3268afa" class=""><strong>س: ١٠٦</strong></p><figure id="47f65672-7db1-4367-8327-ea46298f3cc5" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.29.29_AM.png"><img style="width:978px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.29.29_AM.png"/></a></figure><figure id="7f54ec76-01a2-4003-87ec-18a284d0baf9" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%207f54ec7601a2400387ec18a284d0baf9.html">الاجابه</a></figure><p id="68c3a551-5b0e-4c1a-b81d-b4d8f96dd16f" class="">
+</p><p id="1259cb0a-a200-4959-9ed4-d1fdb87fc091" class=""><strong>س: ١٠٧</strong></p><figure id="b4e7033f-36fa-4bdb-8e9e-87c5268241d5" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.29.43_AM.png"><img style="width:998px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.29.43_AM.png"/></a></figure><figure id="c9f79d9b-8ff5-4482-9aca-a8cd9d3e9bfe" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20c9f79d9b8ff544829acaa8cd9d3e9bfe.html">الاجابه</a></figure><p id="d6c176d0-8e4b-47fc-bf95-a94ddba6945b" class="">
+</p><p id="80247fa9-657a-4110-add6-00905f4fa5dd" class=""><strong>س: ١٠٨</strong></p><figure id="77360bf9-9935-457e-9d03-02f4fa3588c0" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.30.02_AM.png"><img style="width:1024px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.30.02_AM.png"/></a></figure><figure id="1457ccb6-8c55-45a5-876a-dc75324aeda9" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201457ccb68c5545a5876adc75324aeda9.html">الاجابه</a></figure><p id="cece65ef-2d47-4b84-96e6-3358f0871f81" class="">
+</p><p id="bc9e91a1-50b0-41f9-acf2-6ee3c87c6f45" class=""><strong>س: ١٠٩</strong></p><figure id="220cf247-0478-4161-ae81-f61f17b23477" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.30.15_AM.png"><img style="width:982px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.30.15_AM.png"/></a></figure><figure id="fd29f73f-84a3-4de4-8271-d7a2ea4beac5" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20fd29f73f84a34de48271d7a2ea4beac5.html">الاجابه</a></figure><p id="488da32e-6ebd-4285-9b46-3342ee315106" class="">
+</p><p id="f48f6eef-6d4f-4a68-b762-fbafcf3f172d" class=""><strong>س: ١١٠</strong></p><figure id="066279f1-3926-4afe-aefc-566ba76fd8b5" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.32.47_AM.png"><img style="width:1838px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.32.47_AM.png"/></a></figure><figure id="3cf3bf04-eca6-4aab-be35-963bdf27a582" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%203cf3bf04eca64aabbe35963bdf27a582.html">الاجابه</a></figure><p id="ec9b7b10-118e-4342-a69c-2ba39a83a01d" class="">
+</p><p id="58bf1ead-4225-494a-86f5-f71c20bd64c7" class=""><strong>س: ١١١</strong></p><figure id="ddbf50da-2a63-48a9-b2d1-39368dacc0e3" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.33.17_AM.png"><img style="width:288px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.33.17_AM.png"/></a></figure><figure id="b67f91a9-0205-4acc-ad89-a013969cb3a8" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20b67f91a902054accad89a013969cb3a8.html">الاجابه</a></figure><p id="ec2e295e-55d2-4c2e-96ce-3f1aaada369d" class="">
+</p><p id="f69ab427-ab53-42bc-ac1c-b34215142492" class=""><strong>س: ١١٢</strong></p><figure id="4735c7e2-8cbd-4b97-b9ba-765f0657501e" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.38.04_AM.png"><img style="width:1020px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.38.04_AM.png"/></a></figure><figure id="8f30a3ba-2403-432f-93cd-17ea0b8cf244" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%208f30a3ba2403432f93cd17ea0b8cf244.html">الاجابه</a></figure><p id="547232c8-a480-4077-afc6-16e549d119fe" class="">
+</p><p id="0677b38e-3003-493a-96c2-5d4a0722580b" class=""><strong>س: ١١٣</strong></p><figure id="31e87a52-605b-462e-92b2-0a1778e70621" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.38.24_AM.png"><img style="width:2048px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.38.24_AM.png"/></a></figure><figure id="0c6dd3f2-2ffc-43ad-9e4b-2b1080aa0ae8" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%200c6dd3f22ffc43ad9e4b2b1080aa0ae8.html">الاجابه</a></figure><p id="bd35da7a-f87a-436a-9eed-1ae8bda724c8" class="">
+</p><p id="6a3018b8-65c3-4002-8a23-987c2d0708c7" class=""><strong>س: ١١٤</strong></p><figure id="e43b2efc-107e-44c6-b66c-bdafbdbe6707" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.38.51_AM.png"><img style="width:2032px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-18_at_4.38.51_AM.png"/></a></figure><figure id="fa8acf49-3775-4ae1-82d1-b74b8cbdfccc" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20fa8acf4937754ae182d1b74b8cbdfccc.html">الاجابه</a></figure><p id="52244396-bee6-43f7-ab75-e74e698efe74" class="">
+</p><p id="46e5e8d8-7fc4-4e3e-ae5e-dde873e38b86" class=""><strong>س: ١١٥</strong></p><figure id="0f1087a6-a1a9-4994-957c-6ea8091f0e13" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.15.08_AM.png"><img style="width:1006px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.15.08_AM.png"/></a></figure><figure id="d28ca646-0feb-49b6-9579-f6061e972a02" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20d28ca6460feb49b69579f6061e972a02.html">الاجابه</a></figure><p id="d3a5d21f-8e13-4f88-94c6-2ff224a4d8c2" class="">
+</p><p id="432faa6d-14cf-4061-a999-37ce3becf325" class=""><strong>س: ١١٦</strong></p><figure id="590f31a3-ae1f-41bc-a826-6dc1af60c131" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.15.40_AM.png"><img style="width:1044px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.15.40_AM.png"/></a></figure><figure id="01736b4c-7f3f-442c-8315-3fa3e3447ff2" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2001736b4c7f3f442c83153fa3e3447ff2.html">الاجابه</a></figure><p id="1d3efcd4-f096-4e42-a7c4-c301b2b937bb" class="">
+</p><p id="46a34082-bc93-45cf-a9ab-7cd5f7d78683" class=""><strong>س: ١١٧</strong></p><figure id="56f2e7ec-a191-42f6-bb27-63ea17b3e33e" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.15.57_AM.png"><img style="width:1010px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.15.57_AM.png"/></a></figure><figure id="453a1744-1b69-423c-ac6a-6dce379ebc7b" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20453a17441b69423cac6a6dce379ebc7b.html">الاجابه</a></figure><p id="662899f6-f598-4b2a-8337-ac6b4de7dcdf" class="">
+</p><p id="e505789f-bded-4b75-9b7f-368776a06ccc" class=""><strong>س: ١١٨</strong></p><figure id="c49a53a7-18e0-47e3-9efe-f8bb2d37e63d" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.16.10_AM.png"><img style="width:1030px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.16.10_AM.png"/></a></figure><figure id="f38b67c1-1cf1-44a3-b9cb-50e9d4cad241" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20f38b67c11cf144a3b9cb50e9d4cad241.html">الاجابه</a></figure><p id="d447b8c0-9db8-4357-97f8-3530663edc56" class="">
+</p><p id="1f49f3a6-1c72-41a8-a403-9184953d7f39" class=""><strong>س: ١١٩</strong></p><figure id="660dcd16-6323-4346-b667-48726dfb32c3" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.16.27_AM.png"><img style="width:990px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.16.27_AM.png"/></a></figure><figure id="1293f332-c68a-4f17-894b-4346fd7de043" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201293f332c68a4f17894b4346fd7de043.html">الاجابه</a></figure><p id="b844f65d-9038-40c4-b784-9a91c9f920cd" class="">
+</p><p id="7bf9c1a8-4f81-4b9e-9025-c5a3fcdcb3a0" class=""><strong>س: ١٢٠</strong></p><figure id="02349e7b-dcf2-42df-aa8c-e2ff094cda16" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.16.47_AM.png"><img style="width:1004px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.16.47_AM.png"/></a></figure><figure id="8ee826ed-ec2f-400d-8185-f90b5ff0ff0f" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%208ee826edec2f400d8185f90b5ff0ff0f.html">الاجابه</a></figure><p id="f966479e-b6b0-4b8e-8390-c0de66206312" class="">
+</p><p id="12a2c355-190e-4116-92bf-f54ebb4e396f" class=""><strong>س: ١٢١</strong></p><figure id="5e7e04ed-2788-4ae0-a941-3d4b9139760c" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.17.03_AM.png"><img style="width:1028px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.17.03_AM.png"/></a></figure><figure id="1c70f7cc-3c3f-471c-a3fb-87f80dc0571f" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201c70f7cc3c3f471ca3fb87f80dc0571f.html">الاجابه</a></figure><p id="066b31ad-1d1c-438e-a7e4-a4241abfc628" class="">
+</p><p id="cad38f66-2bb6-4f16-82ab-cce65b3b45be" class=""><strong>س: ١٢٢</strong></p><figure id="1c32bde9-d530-4d94-9713-0d7fdc38ac22" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.17.32_AM.png"><img style="width:1014px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.17.32_AM.png"/></a></figure><figure id="be5b78d6-edc2-49ce-b032-91cf968b06a1" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20be5b78d6edc249ceb03291cf968b06a1.html">الاجابه</a></figure><p id="1f514975-440d-4bc5-b936-3deda4f3e908" class="">
+</p><p id="9285ffe4-e318-46b9-8555-1e5a2ea135ff" class=""><strong>س: ١٢٣</strong></p><figure id="97711d04-dbea-4bb6-a8a7-cf12f8f54276" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.17.46_AM.png"><img style="width:1028px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.17.46_AM.png"/></a></figure><figure id="7007c77c-5644-4886-9e6a-6bd4ef1eda76" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%207007c77c564448869e6a6bd4ef1eda76.html">الاجابه</a></figure><p id="a78fb484-cb3b-43d4-9276-17db4be371a9" class="">
+</p><p id="c735c43d-363b-4fe3-a664-ea1a775334dd" class=""><strong>س: ١٢٤</strong></p><figure id="7dc97772-1f9a-4181-b16d-6076492ec755" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.18.03_AM.png"><img style="width:1048px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.18.03_AM.png"/></a></figure><figure id="14a741af-a35e-4994-aa0c-3f96a496fc3f" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2014a741afa35e4994aa0c3f96a496fc3f.html">الاجابه</a></figure><p id="712824e6-a814-40df-ba97-c1fd6706c223" class="">
+</p><p id="c274154e-25f9-4159-aad5-7b447f83b795" class=""><strong>س: ١٢٥</strong></p><figure id="dacb6dbc-ee55-4747-8044-37a17a3ebd30" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.18.19_AM.png"><img style="width:1042px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.18.19_AM.png"/></a></figure><figure id="fca0ba41-8405-4cf0-8c0e-246eae732d91" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20fca0ba4184054cf08c0e246eae732d91.html">الاجابه</a></figure><p id="7817bc9e-a00f-4ab1-81e5-9878ef912109" class="">
+</p><p id="0e04f368-ba9d-425d-87b1-c9fdfbd25c1e" class=""><strong>س: ١٢٦</strong></p><figure id="00e01a97-ce5f-44fb-94e9-b212fb1ca6ec" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.18.33_AM.png"><img style="width:1022px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.18.33_AM.png"/></a></figure><figure id="2ba8d33e-4b5a-4cbc-91f2-6457012ec309" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%202ba8d33e4b5a4cbc91f26457012ec309.html">الاجابه</a></figure><p id="22295576-0f8b-4d2f-9384-ddfb6157f8ee" class="">
+</p><p id="c1b7c70e-dd63-4a2a-8ca0-0975f21f9887" class=""><strong>س: ١٢٧</strong></p><figure id="fed2496d-66af-4594-b6d7-8446a45f64b2" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.19.17_AM.png"><img style="width:1052px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.19.17_AM.png"/></a></figure><figure id="a71b281a-3916-4a0a-9eea-38e2953ba1d8" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a71b281a39164a0a9eea38e2953ba1d8.html">الاجابه</a></figure><p id="c29f691c-c99c-4289-b771-f59065869417" class="">
+</p><p id="c96f9498-6edb-4859-82e8-dce4da467d99" class=""><strong>س: ١٢٨</strong></p><figure id="a8f8529f-3b9f-4de9-af8d-c70233e08996" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.19.58_AM.png"><img style="width:1032px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.19.58_AM.png"/></a></figure><figure id="b7118d89-2033-4f77-b665-7d6356684204" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20b7118d8920334f77b6657d6356684204.html">الاجابه</a></figure><p id="a82a6c0c-df89-4db0-bebe-ca48fbd92185" class="">
+</p><p id="78592a7a-51bb-473f-8b59-e82bf15fcd5d" class=""><strong>س: ١٢٩</strong></p><figure id="3ff513b0-df32-44d9-959c-665044bfd9bd" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.20.11_AM.png"><img style="width:974px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.20.11_AM.png"/></a></figure><figure id="a1dece4e-02be-4c08-8a69-9df94604e3f3" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a1dece4e02be4c088a699df94604e3f3.html">الاجابه</a></figure><p id="58d04989-2606-4eec-96cf-c9a47be7e28d" class="">
+</p><p id="75d14b4b-acc3-44f1-8787-c69091b4a703" class=""><strong>س: ١٣٠</strong></p><figure id="0be9a0fe-e3fd-4122-9810-d18604f04373" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.20.24_AM.png"><img style="width:1002px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.20.24_AM.png"/></a></figure><figure id="ca8c4eb4-4e37-4862-a467-b21d02af318b" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20ca8c4eb44e374862a467b21d02af318b.html">الاجابه</a></figure><p id="320389af-6bea-4c94-b662-303b46b5e600" class="">
+</p><p id="00e63221-2385-494c-8cb8-f2e8625b32b6" class=""><strong>س: ١٣١</strong></p><figure id="755b6c87-0073-4ddc-8e95-c4075c6bb494" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.20.38_AM.png"><img style="width:1042px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.20.38_AM.png"/></a></figure><figure id="701a918c-72f5-4a67-9849-153e1136e2d6" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20701a918c72f54a679849153e1136e2d6.html">الاجابه</a></figure><p id="275b5ee3-9cda-44ea-b642-bf48619abb80" class="">
+</p><p id="b0388a06-a48d-4f11-b8a2-fd239565a3ef" class=""><strong>س: ١٣٢</strong></p><figure id="811bd560-e9cc-4276-aaa4-a0f22a037905" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.20.52_AM.png"><img style="width:1034px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.20.52_AM.png"/></a></figure><figure id="4cb18d9e-14f0-4379-8736-b22d0c3de08c" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%204cb18d9e14f043798736b22d0c3de08c.html">الاجابه</a></figure><p id="1b14a65a-b51c-43f6-9991-e3f503c4a610" class="">
+</p><p id="5edbd8ac-a8c3-45a2-804a-888c2e5ed0b1" class=""><strong>س: ١٣٣</strong></p><figure id="79ae8b59-64f6-43d9-827b-17735bd5d065" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.21.05_AM.png"><img style="width:974px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.21.05_AM.png"/></a></figure><figure id="e2ba415c-0207-44bf-8396-a1c58813862b" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20e2ba415c020744bf8396a1c58813862b.html">الاجابه</a></figure><p id="557276ad-bc94-4f54-94b9-e8b5927d9915" class="">
+</p><p id="535fd749-ab7b-413c-a60f-e11dbcab0d84" class=""><strong>س: ١٣٤</strong></p><figure id="b7d0138f-6564-4d41-8257-dbe761c84ef4" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.21.17_AM.png"><img style="width:992px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.21.17_AM.png"/></a></figure><figure id="a4892c88-f86e-4be5-bda2-b30e7d0adb4b" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a4892c88f86e4be5bda2b30e7d0adb4b.html">الاجابه</a></figure><p id="f23d5081-e72f-467e-a8f9-c5f4042e0009" class="">
+</p><p id="0b3e696a-9ae4-442f-9824-0fa4091e2416" class=""><strong>س: ١٣٥</strong></p><figure id="10783004-c248-431f-80a7-4a9d2ea93e2c" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.21.29_AM.png"><img style="width:954px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.21.29_AM.png"/></a></figure><figure id="c8dbb4d4-4ee3-45bc-a259-f2f4a54c7090" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20c8dbb4d44ee345bca259f2f4a54c7090.html">الاجابه</a></figure><p id="3ab8912b-524e-41b4-b83b-f78eeb3cbcf1" class="">
+</p><p id="5e8dcf12-9a39-4a29-af5b-166282ab4b32" class=""><strong>س: ١٣٦</strong></p><figure id="5fc51d45-b225-48ea-bfed-57c2f93afe60" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.21.40_AM.png"><img style="width:950px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.21.40_AM.png"/></a></figure><figure id="af6b994f-b0e6-4370-944b-816f2a016a7e" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20af6b994fb0e64370944b816f2a016a7e.html">الاجابه</a></figure><p id="5a1f9d15-0721-42bc-bab4-5e158ce2800f" class="">
+</p><p id="89d9ad07-2eb5-484a-aa12-24d78710e2a0" class=""><strong>س: ١٣٧</strong></p><figure id="0c952a6a-4c8f-492a-989d-2ae9672181a7" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.21.57_AM.png"><img style="width:1036px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-19_at_3.21.57_AM.png"/></a></figure><figure id="a12927fd-1278-4421-8f2a-e6608dc6e189" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a12927fd127844218f2ae6608dc6e189.html">الاجابه</a></figure><p id="d99d8270-0ea0-41b8-a950-372d286c94b7" class="">
+</p><p id="c81f0c4c-d167-4850-b151-1ab154d3af1a" class=""><strong>س: ١٣٨</strong></p><figure id="e3ece384-82c0-4b46-bc5e-adaf6c903243" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.23.28_PM.png"><img style="width:1046px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.23.28_PM.png"/></a></figure><figure id="0390376c-a796-4f63-9296-eb744e6c1ea3" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%200390376ca7964f639296eb744e6c1ea3.html">الاجابه</a></figure><p id="54d6c902-f0c2-434b-ad5e-47d9b6583f1e" class="">
+</p><p id="ced5a03a-bcac-4811-af9f-af2d7b3b4c08" class=""><strong>س: ١٣٩</strong></p><figure id="c50437da-1297-4ce3-84db-9f772abdf9ee" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.23.45_PM.png"><img style="width:1040px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.23.45_PM.png"/></a></figure><figure id="b4a824a4-13b7-47a1-a5f7-f4966d2d7b8e" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20b4a824a413b747a1a5f7f4966d2d7b8e.html">الاجابه</a></figure><p id="bff3bc7c-042b-4930-bc36-08d9af07b9e5" class="">
+</p><p id="cc9ef09c-6336-455a-9319-c37992f8e5e4" class=""><strong>س: ١٤٠</strong></p><figure id="909cb0ce-d337-4ea1-b44b-90a28f38538b" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.24.10_PM.png"><img style="width:1042px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.24.10_PM.png"/></a></figure><figure id="aac4f1c4-b1a5-4cfb-ae1d-cb7842164ff9" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20aac4f1c4b1a54cfbae1dcb7842164ff9.html">الاجابه</a></figure><p id="829156aa-753f-451b-805d-a3b49431eae0" class="">
+</p><p id="d3f09d8b-8ad5-40e6-90df-21ece997e174" class=""><strong>س: ١٤١</strong></p><figure id="fdd34539-23d6-42a2-9931-13e94b550009" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.24.30_PM.png"><img style="width:1002px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.24.30_PM.png"/></a></figure><figure id="a65b3039-aa80-499f-80b0-d7af24f56891" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a65b3039aa80499f80b0d7af24f56891.html">الاجابه</a></figure><p id="934369e5-09a1-4a82-97bc-9b69e3836799" class="">
+</p><p id="074e74b4-df93-40cc-9aa0-785cffb32a4f" class=""><strong>س: ١٤٢</strong></p><figure id="0338173a-68d5-404b-afcd-cb9fe8a50527" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.24.48_PM.png"><img style="width:974px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.24.48_PM.png"/></a></figure><figure id="a466d52b-8b7a-4cf2-a79e-5d6403840e2f" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a466d52b8b7a4cf2a79e5d6403840e2f.html">الاجابه</a></figure><p id="d21e6172-a5f6-49bb-b175-c82060ec42da" class="">
+</p><p id="1d04800e-ef7a-4852-9462-2b22fc60f2d1" class=""><strong>س: ١٤٣</strong></p><figure id="ccff8ae1-bd80-4022-b514-460d070c3913" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.25.06_PM.png"><img style="width:1036px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.25.06_PM.png"/></a></figure><figure id="ce7ba426-0ce6-45d7-8318-b668ac5385b4" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20ce7ba4260ce645d78318b668ac5385b4.html">الاجابه</a></figure><p id="c5650341-df63-4f52-b510-f42d4f99eebd" class="">
+</p><p id="acac1567-34f4-4b2d-b985-38f277425890" class=""><strong>س: ١٤٤</strong></p><figure id="27a362d4-cc34-4018-b51d-af945722a0a6" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.25.22_PM.png"><img style="width:1036px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.25.22_PM.png"/></a></figure><figure id="fea051f2-4aae-44e7-a71b-2f3193398250" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20fea051f24aae44e7a71b2f3193398250.html">الاجابه</a></figure><p id="4c683bb1-7610-4acf-9d55-bdb74ccfc3af" class="">
+</p><p id="c738a015-3ae0-40f8-9fe6-c7363370c5e9" class=""><strong>س: ١٤٥</strong></p><figure id="181ff9f9-f8d8-4d19-9c9b-021904ec38d8" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.25.41_PM.png"><img style="width:1046px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.25.41_PM.png"/></a></figure><figure id="5ab04a45-a1e1-4c08-9c5d-e8f7a1502257" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%205ab04a45a1e14c089c5de8f7a1502257.html">الاجابه</a></figure><p id="9e2f8a9b-3714-4c95-a9de-b06c89bbf848" class="">
+</p><p id="69606638-567a-4a9a-8acf-06f8f0821630" class=""><strong>س: ١٤٦</strong></p><figure id="8711b787-d383-4ebb-bee1-69f8227535e1" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.26.02_PM.png"><img style="width:1044px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.26.02_PM.png"/></a></figure><figure id="59edd4c1-16f2-46fe-af06-221b5853fde6" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2059edd4c116f246feaf06221b5853fde6.html">الاجابه</a></figure><p id="92334716-24ff-4b60-be1c-823951c60dcc" class="">
+</p><p id="b5987a0b-e40f-41ae-8ac3-80c775d18cf1" class=""><strong>س: ١٤٧</strong></p><figure id="cee05530-481a-49f0-8695-312038030985" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.26.17_PM.png"><img style="width:954px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.26.17_PM.png"/></a></figure><figure id="de973a44-fc42-4061-a345-90f125e4edc5" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20de973a44fc424061a34590f125e4edc5.html">الاجابه</a></figure><p id="98f15522-c6e8-49d6-a3e1-544ac1d35bb6" class="">
+</p><p id="41902a0d-6c6e-428b-87bd-3957ba3e8e65" class=""><strong>س: ١٤٨</strong></p><figure id="48db025f-ca3a-4548-93bb-0c8f0d9fe305" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.26.44_PM.png"><img style="width:1028px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.26.44_PM.png"/></a></figure><figure id="49a67a97-ffa2-43f2-a7cd-7d8647f54465" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2049a67a97ffa243f2a7cd7d8647f54465.html">الاجابه</a></figure><p id="15acf297-e9b4-4998-b58d-1e6cf5adaf40" class="">
+</p><p id="51be5aca-2945-4b80-9e2b-bf3af6c2d2e4" class=""><strong>س: ١٤٩</strong></p><figure id="5519e004-44dd-487f-9050-1129c2e9c217" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.27.01_PM.png"><img style="width:1040px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.27.01_PM.png"/></a></figure><figure id="7252ede4-2b77-44ca-af3d-2169c7a1db66" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%207252ede42b7744caaf3d2169c7a1db66.html">الاجابه</a></figure><p id="ce9294c6-750b-4c5e-8199-8290bfe5015f" class="">
+</p><p id="dc15722b-218b-41fd-98bb-58f40abad66a" class=""><strong>س: ١٥٠</strong></p><figure id="0f80b1eb-a232-4158-921d-a04c8d179df0" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.27.20_PM.png"><img style="width:978px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_7.27.20_PM.png"/></a></figure><figure id="91f39e54-35e6-42f9-8c2a-50abbe33e777" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2091f39e5435e642f98c2a50abbe33e777.html">الاجابه</a></figure><p id="48a1fa10-9410-46be-8c10-e3a08e163fee" class="">
+</p><p id="1b2e74dd-046c-4eb5-8664-ac344ee30342" class=""><strong>س: ١٥١</strong></p><figure id="f04a6470-43e2-4ca0-858f-9ac85d9b4173" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.03.18_PM.png"><img style="width:986px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.03.18_PM.png"/></a></figure><figure id="6d082b64-b96a-492b-a106-8d1cd2ee9257" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%206d082b64b96a492ba1068d1cd2ee9257.html">الاجابه</a></figure><p id="3dce81e3-de38-4b2c-8415-ea363a035c38" class="">
+</p><p id="2c6159c1-f38b-4dc5-ae8e-c86f86c4e0b2" class=""><strong>س: ١٥٢</strong></p><figure id="bbf3a0ba-9d58-4322-8b24-b24e7a34a548" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.03.49_PM.png"><img style="width:1018px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.03.49_PM.png"/></a></figure><figure id="ab460dd5-2e89-4b03-938c-16c5b1e65668" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20ab460dd52e894b03938c16c5b1e65668.html">الاجابه</a></figure><p id="f47125bd-3bfa-4596-a452-de897e578078" class="">
+</p><p id="42e2c201-5b56-46d5-b35a-68d8672a60ba" class=""><strong>س: ١٥٣</strong></p><figure id="033c3346-85dc-490d-9396-470b3338d110" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.04.14_PM.png"><img style="width:970px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.04.14_PM.png"/></a></figure><figure id="533f1125-4c3a-4aa7-be9e-10fd234bb9dd" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20533f11254c3a4aa7be9e10fd234bb9dd.html">الاجابه</a></figure><p id="e16f5128-1e66-4f76-be2e-d79c9dbd4415" class="">
+</p><p id="1a1f42d7-765a-48bb-8037-1282e8d6e0c5" class=""><strong>س: ١٥٤</strong></p><figure id="ac1a46e4-1e24-4af2-8647-3c4ad596a57d" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.04.35_PM.png"><img style="width:1048px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.04.35_PM.png"/></a></figure><figure id="afd0c27f-e36a-41e5-bd22-5ffc7118f75d" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20afd0c27fe36a41e5bd225ffc7118f75d.html">الاجابه</a></figure><p id="2349ffca-88c2-4a1a-9564-be23a3a46b4f" class="">
+</p><p id="39a4760b-ffe7-4db6-a441-6c4758fc87b0" class=""><strong>س: ١٥٥</strong></p><figure id="f0b3f71c-9109-43c7-96bb-1294c36511eb" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.05.05_PM.png"><img style="width:1040px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.05.05_PM.png"/></a></figure><figure id="1f27dc17-fbd2-4f83-96d8-92565b2d2beb" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201f27dc17fbd24f8396d892565b2d2beb.html">الاجابه</a></figure><p id="dbce8e97-6660-4568-a75e-8eb976bffbef" class="">
+</p><p id="5a13335f-e4fc-413e-b22e-6350af44af38" class=""><strong>س: ١٥٦</strong></p><figure id="65bd094b-0e77-4cef-b716-a35ceaba9361" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.05.26_PM.png"><img style="width:1018px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.05.26_PM.png"/></a></figure><figure id="a5eb6a13-65cd-4951-bf68-2187e9eb7d0b" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a5eb6a1365cd4951bf682187e9eb7d0b.html">الاجابه</a></figure><p id="79e3da73-c9c7-4826-ab0c-dd1f18f5a2c8" class="">
+</p><p id="1cd34935-9f43-4414-aadb-c665efd71f7f" class=""><strong>س: ١٥٧</strong></p><figure id="f1c99e6d-f010-4e86-abbb-eb0e8627d950" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.05.53_PM.png"><img style="width:1022px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.05.53_PM.png"/></a></figure><figure id="6d81c040-649a-4f4f-9ec9-4c9cefd0148d" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%206d81c040649a4f4f9ec94c9cefd0148d.html">الاجابه</a></figure><p id="5855b855-8ae0-4f04-84bf-8541bacca452" class="">
+</p><p id="ca21c355-2743-4d9d-97c6-523d3c7434dc" class=""><strong>س: ١٥٨</strong></p><figure id="75ae30da-0267-4502-830d-5ef980251306" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.06.07_PM.png"><img style="width:1028px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.06.07_PM.png"/></a></figure><figure id="3fd84ea7-5081-4ad0-bc59-eda14aa66605" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%203fd84ea750814ad0bc59eda14aa66605.html">الاجابه</a></figure><p id="584102aa-2aa5-47dc-8caa-d9b3d6d0351f" class="">
+</p><p id="546189f9-6f6d-4f60-a44a-e519f8b47b22" class=""><strong>س: ١٥٩</strong></p><figure id="95f3959e-9414-405c-ac97-311c3e393f8a" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.06.29_PM.png"><img style="width:972px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.06.29_PM.png"/></a></figure><figure id="297e3d1f-d8dd-418d-9da0-27d910965623" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20297e3d1fd8dd418d9da027d910965623.html">الاجابه</a></figure><p id="d3315416-3f7f-4c3e-b2a5-d1fc1081339f" class="">
+</p><p id="aa583f44-a5a4-4f2a-aa9f-796bc646920a" class=""><strong>س: ١٦٠</strong></p><figure id="c7e699fc-7908-49cf-b3fa-cbf8dd3a2a0a" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.06.46_PM.png"><img style="width:1048px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.06.46_PM.png"/></a></figure><figure id="a2e470c4-127d-4f8c-a928-90bd41bd8eb6" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20a2e470c4127d4f8ca92890bd41bd8eb6.html">الاجابه</a></figure><p id="ee12af6a-0ae3-4ea5-a449-a399d0d862f1" class="">
+</p><p id="20e1c3c8-fa4f-4e6c-a1ba-2c8b95af79c3" class=""><strong>س: ١٦١</strong></p><figure id="83403765-ada1-489b-9fb7-5c25c4e18f56" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.07.03_PM.png"><img style="width:932px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.07.03_PM.png"/></a></figure><figure id="b319d317-83a2-47db-aade-6d5a68571419" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20b319d31783a247dbaade6d5a68571419.html">الاجابه</a></figure><p id="fbf6facc-a994-489b-a9a9-0305d6d1d479" class="">
+</p><p id="68af6be3-f116-457d-b6ca-f0c624964875" class=""><strong>س: ١٦٢</strong></p><figure id="f7a4af0d-cbad-4b0f-8399-c9eab707df27" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.07.16_PM.png"><img style="width:1020px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.07.16_PM.png"/></a></figure><figure id="60e74c30-09fc-48fd-9d99-674e62f66c4c" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%2060e74c3009fc48fd9d99674e62f66c4c.html">الاجابه</a></figure><p id="77369452-00be-4509-b380-392de95ff8a3" class="">
+</p><p id="5885207c-5bb2-40fd-ab08-ab4a154d35e9" class=""><strong>س: ١٦٣</strong></p><figure id="5d8c14eb-09d2-4102-b927-ddf585695ffc" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.07.30_PM.png"><img style="width:1004px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.07.30_PM.png"/></a></figure><figure id="f988c323-ab82-43cd-a468-8f2a134181cb" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20f988c323ab8243cda4688f2a134181cb.html">الاجابه</a></figure><p id="aa999bbc-a48d-467d-ae78-57886b1d6f2a" class="">
+</p><p id="93b47d1f-f9b6-4154-a19e-d0277688f9b6" class=""><strong>س: ١٦٤</strong></p><figure id="958a1c43-7d3b-4eaa-a83a-847f48b45081" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.07.47_PM.png"><img style="width:888px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.07.47_PM.png"/></a></figure><figure id="428eb03e-5703-41e2-aaf8-a978cf02bbe2" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20428eb03e570341e2aaf8a978cf02bbe2.html">الاجابه</a></figure><p id="5806af5a-6e77-4e47-a902-5e0a91d8f329" class="">
+</p><p id="debeebba-bf06-4e05-999f-0228b20d8ac3" class=""><strong>س: ١٦٥</strong></p><figure id="4d0f1620-bd2d-4b34-a65b-e3a81303774b" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.08.02_PM.png"><img style="width:1044px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.08.02_PM.png"/></a></figure><figure id="799165b6-6970-463e-a0bc-26ea5bf532b9" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20799165b66970463ea0bc26ea5bf532b9.html">الاجابه</a></figure><p id="5fc1ce27-73b9-4179-a945-6e98c2adcee6" class="">
+</p><p id="197922d4-0685-4b47-b892-554ff73626f9" class=""><strong>س: ١٦٦</strong></p><figure id="f1780270-cae9-4a81-8e8e-b9402df76b34" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.08.17_PM.png"><img style="width:992px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.08.17_PM.png"/></a></figure><figure id="7d900f7f-831c-4aa2-90f4-04074e30b451" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%207d900f7f831c4aa290f404074e30b451.html">الاجابه</a></figure><p id="f36ca100-0c89-44d0-9f9d-5321348f4a71" class="">
+</p><p id="93b71538-a673-4971-b65e-2332db4c97d9" class=""><strong>س: ١٦٧</strong></p><figure id="05f3e6b9-5a54-40be-91e5-623a342d56aa" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.08.31_PM.png"><img style="width:1022px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.08.31_PM.png"/></a></figure><figure id="fa7819a6-9a90-4554-8a65-418719591ab6" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20fa7819a69a9045548a65418719591ab6.html">الاجابه</a></figure><p id="4f14315b-12aa-40e1-abd6-c0edc71bf736" class="">
+</p><p id="952809b5-5bc1-40b6-9ce7-c1d5511c28c1" class=""><strong>س: ١٦٨</strong></p><figure id="ccc9f9b6-4a7c-4b68-8f45-5b8a4a9ff691" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.08.46_PM.png"><img style="width:1040px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.08.46_PM.png"/></a></figure><figure id="1585faf4-30bd-49ae-a80c-0fbcff2f30a5" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201585faf430bd49aea80c0fbcff2f30a5.html">الاجابه</a></figure><p id="e4fb36a2-7423-44c1-b9e6-51e68c343417" class="">
+</p><p id="1d1e63d0-e847-4141-95fa-8cbe836510b0" class=""><strong>س: ١٦٩</strong></p><figure id="d1d86c63-436e-449d-8ba8-cfcecfd84388" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.09.01_PM.png"><img style="width:1042px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.09.01_PM.png"/></a></figure><figure id="2b39e53c-8bf6-4fc3-bd77-8d8a2801f037" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%202b39e53c8bf64fc3bd778d8a2801f037.html">الاجابه</a></figure><p id="37e3be0c-9595-4b0d-a389-d6265daadc8d" class="">
+</p><p id="05ed960d-af87-4da1-9ff6-4dc6b66ebd14" class=""><strong>س: ١٧٠</strong></p><figure id="f0b8cd1e-970a-4f0d-b864-01ad25b3d2fa" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.09.22_PM.png"><img style="width:1020px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.09.22_PM.png"/></a></figure><figure id="1619b09a-5f36-4333-bfba-49a752306731" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%201619b09a5f364333bfba49a752306731.html">الاجابه</a></figure><p id="16eb69fa-8442-4407-b884-38cd67426beb" class="">
+</p><p id="b0c7213f-e898-420d-b0c0-f7718dde0729" class=""><strong>س: ١٧١</strong></p><figure id="d82f7571-3bda-41e1-b485-b8593b03b615" class="image"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.09.41_PM.png"><img style="width:1038px" src="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/Screen_Shot_2021-02-21_at_8.09.41_PM.png"/></a></figure><figure id="071ad794-78c8-4b73-bb69-f3b6a77cf13c" class="link-to-page"><a href="UnitTwoQ%208bf023a1903345e08d2392bac1198b88/%D8%A7%D9%84%D8%A7%D8%AC%D8%A7%D8%A8%D9%87%20071ad79478c84b73bb69f3b6a77cf13c.html">الاجابه</a></figure><p id="c587af77-c093-47b0-b7c7-3b5fd4c0519a" class="">
+</p></div></article></body></html>
